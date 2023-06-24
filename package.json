@@ -16,11 +16,16 @@
 		"prepare": "husky install"
 	},
 	"lint-staged": {
-		"*.js": ["wp-scripts lint-js", "wp-scripts format"],
+		"*.js": [
+			"wp-scripts lint-js",
+			"wp-scripts format"
+		],
 		"*.scss": "npx stylelint --fix"
 	},
 	"devDependencies": {
+		"@wordpress/block-editor": "^12.3.0",
 		"@wordpress/eslint-plugin": "^14.8.0",
+		"@wordpress/i18n": "^4.36.0",
 		"@wordpress/prettier-config": "^2.19.0",
 		"@wordpress/scripts": "^26.6.0",
 		"@wordpress/stylelint-config": "^21.19.0",
