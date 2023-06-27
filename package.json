@@ -24,6 +24,7 @@
 	},
 	"devDependencies": {
 		"@wordpress/block-editor": "^12.3.0",
+		"@wordpress/components": "^25.1.0",
 		"@wordpress/eslint-plugin": "^14.8.0",
 		"@wordpress/i18n": "^4.36.0",
 		"@wordpress/prettier-config": "^2.19.0",

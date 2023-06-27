@@ -1,0 +1,4 @@
+$block-group: "blocks-course";
+$block-name: "text-box";
+$block: "#{$block-group}-#{$block-name}";
+$block-class: "wp-block-#{$block}";
