@@ -4,12 +4,15 @@ import {
 	RichText,
 	BlockControls,
 	AlignmentToolbar,
+	InspectorControls,
+	PanelColorSettings,
+	ContrastChecker,
 } from '@wordpress/block-editor';
 
 import './editor.scss';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { text, alignment } = attributes;
+	const { text, alignment, backgroundColor, textColor } = attributes;
 
 	const onChangeText = ( newText ) => {
 		setAttributes( { text: newText } );
@@ -19,8 +22,40 @@ export default function Edit( { attributes, setAttributes } ) {
 		setAttributes( { alignment: newAlignment } );
 	};
 
+	const onChangeBackgroundColor = ( newBackgroundColor ) => {
+		setAttributes( { backgroundColor: newBackgroundColor } );
+	};
+
+	const onChangeTextColor = ( newTextColor ) => {
+		setAttributes( { textColor: newTextColor } );
+	};
+
 	return (
 		<>
+			<InspectorControls>
+				<PanelColorSettings
+					title={ __( 'Color settings', 'text-box' ) }
+					icon={ 'admin-appearance' }
+					initialOpen
+					colorSettings={ [
+						{
+							value: backgroundColor,
+							onChange: onChangeBackgroundColor,
+							label: __( 'Background Color', 'text-box' ),
+						},
+						{
+							value: textColor,
+							onChange: onChangeTextColor,
+							label: __( 'Text Color', 'text-box' ),
+						},
+					] }
+				>
+					<ContrastChecker
+						textColor={ textColor }
+						backgroundColor={ backgroundColor }
+					/>
+				</PanelColorSettings>
+			</InspectorControls>
 			<BlockControls>
 				<AlignmentToolbar
 					value={ alignment }
@@ -30,6 +65,10 @@ export default function Edit( { attributes, setAttributes } ) {
 			<RichText
 				{ ...useBlockProps( {
 					className: `text-box-align-${ alignment }`,
+					style: {
+						backgroundColor,
+						color: textColor,
+					},
 				} ) }
 				onChange={ onChangeText }
 				value={ text }

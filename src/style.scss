@@ -1,8 +1,6 @@
 @import "constants";
 
 .#{$block-class} {
-	background-color: rgb(1, 1, 1);
-	color: #fff;
 	padding: 2px;
 
 	&.#{$block-name}-align-left {
