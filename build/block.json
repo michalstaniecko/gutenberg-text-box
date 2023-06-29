@@ -8,7 +8,11 @@
   "icon": "text-page",
   "description": "A box of text.",
   "supports": {
-    "html": false
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true
+    }
   },
   "textdomain": "wp-blocks",
   "editorScript": "file:./index.js",
@@ -25,10 +29,12 @@
       "default": "left"
     },
     "backgroundColor": {
-      "type": "string"
+      "type": "string",
+      "default": "strong-magenta"
     },
     "textColor": {
-      "type": "string"
+      "type": "string",
+      "default": "light-grey"
     },
     "customBackgroundColor": {
       "type": "string"
