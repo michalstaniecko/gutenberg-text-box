@@ -13,6 +13,13 @@
 		}
 	}
 
+	&.is-styles-squared {
+		border-radius: 0;
+	}
+
+	&.is-style-rounded {
+		border-radius: 20px;
+	}
 
 	&.#{$block-name}-align-left {
 		text-align: left;
