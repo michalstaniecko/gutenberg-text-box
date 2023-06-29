@@ -12,6 +12,9 @@
 		"color": {
 			"background": true,
 			"text": true
+		},
+		"spacing": {
+			"padding": true
 		}
 	},
 	"textdomain": "wp-blocks",
@@ -41,6 +44,19 @@
 		},
 		"customTextColor": {
 			"type": "string"
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"spacing": {
+					"padding": {
+						"top": "100px",
+						"bottom": "90px",
+						"left": "80px",
+						"right": "70px"
+					}
+				}
+			}
 		}
 	}
 }
