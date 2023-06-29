@@ -20,6 +20,7 @@ import './style.scss';
 import Edit from './edit';
 import save from './save';
 import metadata from './block.json';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -36,4 +37,16 @@ registerBlockType( metadata.name, {
 	 * @see ./save.js
 	 */
 	save,
+
+	variations: [
+		{
+			name: 'blocks-course/shadow-text-box',
+			title: __( 'Gradient text box', 'text-box' ),
+			icon: 'wordpress',
+			attributes: {
+				shadow: true,
+				shadowOpacity: 100,
+			},
+		},
+	],
 } );

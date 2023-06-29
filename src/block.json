@@ -11,7 +11,8 @@
 		"html": false,
 		"color": {
 			"background": true,
-			"text": true
+			"text": true,
+			"gradient": true
 		},
 		"spacing": {
 			"padding": true
@@ -28,6 +29,13 @@
 			"label": "Rounded"
 		}
 	],
+	"example": {
+		"attributes": {
+			"text": "This is some text!",
+			"backgroundColor": "strong-magenta",
+			"shadow": true
+		}
+	},
 	"textdomain": "wp-blocks",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
@@ -62,6 +70,9 @@
 			"type": "string"
 		},
 		"customTextColor": {
+			"type": "string"
+		},
+		"gradient": {
 			"type": "string"
 		},
 		"style": {
