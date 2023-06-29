@@ -3,6 +3,17 @@
 .#{$block-class} {
 	padding: 2px;
 
+	&.has-shadow {
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
+		@for $i from 1 through 10 {
+			&.shadow-opacity-#{$i}0 {
+				box-shadow: 0 0 20px rgba(0, 0, 0, calc($i / 10));
+			}
+		}
+	}
+
+
 	&.#{$block-name}-align-left {
 		text-align: left;
 	}
