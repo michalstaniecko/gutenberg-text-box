@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-import { registerBlockType, createBlock } from '@wordpress/blocks';
+import { registerBlockType } from '@wordpress/blocks';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -19,8 +19,10 @@ import './style.scss';
  */
 import Edit from './edit';
 import save from './save';
+import transforms from './transforms';
+import variations from './variations';
+import v1 from './deprications';
 import metadata from './block.json';
-import { __ } from '@wordpress/i18n';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -38,64 +40,9 @@ registerBlockType( metadata.name, {
 	 */
 	save,
 
-	variations: [
-		{
-			name: 'blocks-course/shadow-text-box',
-			title: __( 'Gradient text box', 'text-box' ),
-			icon: 'wordpress',
-			attributes: {
-				shadow: true,
-				shadowOpacity: 100,
-			},
-		},
-	],
+	deprecated: [ v1 ],
 
-	transforms: {
-		from: [
-			{
-				type: 'block',
-				blocks: [ 'core/paragraph' ],
-				transform: ( { content, align } ) => {
-					return createBlock( 'blocks-course/text-box', {
-						text: content,
-						alignment: align,
-					} );
-				},
-			},
-			{
-				type: 'enter',
-				regExp: /textbox/i,
-				transform: () => {
-					return createBlock( 'blocks-course/text-box', {
-						shadow: true,
-					} );
-				},
-			},
-			{
-				type: 'prefix',
-				prefix: 'textbox',
-				transform: () => {
-					return createBlock( 'blocks-course/text-box', {
-						shadow: true,
-						shadowOpacity: 90,
-					} );
-				},
-			},
-		],
-		to: [
-			{
-				type: 'block',
-				blocks: [ 'core/paragraph' ],
-				isMatch: ( { text } ) => {
-					return !! text;
-				},
-				transform: ( { text, alignment } ) => {
-					return createBlock( 'core/paragraph', {
-						content: text,
-						align: alignment,
-					} );
-				},
-			},
-		],
-	},
+	variations,
+
+	transforms,
 } );
