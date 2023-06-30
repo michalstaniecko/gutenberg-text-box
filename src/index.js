@@ -21,7 +21,7 @@ import Edit from './edit';
 import save from './save';
 import transforms from './transforms';
 import variations from './variations';
-import v1 from './deprications';
+import { v1, v2 } from './deprecations';
 import metadata from './block.json';
 
 /**
@@ -40,7 +40,7 @@ registerBlockType( metadata.name, {
 	 */
 	save,
 
-	deprecated: [ v1 ],
+	deprecated: [ v2, v1 ],
 
 	variations,
 

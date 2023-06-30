@@ -1,16 +1,27 @@
 import classnames from 'classnames';
 import { RichText, useBlockProps } from '@wordpress/block-editor';
-import blockData from './block.json';
+import blockData from './../block.json';
+import { omit } from 'underscore';
 
 const v1 = {
 	supports: { ...blockData.supports },
 	attributes: {
-		...blockData.attributes,
+		...omit( blockData.attributes, [ 'textAlignment' ] ),
+		alignment: {
+			type: 'string',
+			default: 'left',
+		},
 		text: {
 			type: 'string',
 			source: 'html',
 			selector: 'h4',
 		},
+	},
+	migrate: ( attributes ) => {
+		return {
+			...omit( attributes, 'alignment' ),
+			textAlignment: attributes.alignment,
+		};
 	},
 	save: ( { attributes } ) => {
 		const { text, alignment, shadow, shadowOpacity } = attributes;

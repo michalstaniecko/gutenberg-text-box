@@ -8,7 +8,7 @@ export default {
 			transform: ( { content, align } ) => {
 				return createBlock( 'blocks-course/text-box', {
 					text: content,
-					alignment: align,
+					textAlignment: align,
 				} );
 			},
 		},
@@ -39,10 +39,10 @@ export default {
 			isMatch: ( { text } ) => {
 				return !! text;
 			},
-			transform: ( { text, alignment } ) => {
+			transform: ( { text, textAlignment } ) => {
 				return createBlock( 'core/paragraph', {
 					content: text,
-					align: alignment,
+					align: textAlignment,
 				} );
 			},
 		},
