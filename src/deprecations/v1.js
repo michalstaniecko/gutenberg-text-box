@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import { RichText, useBlockProps } from '@wordpress/block-editor';
 import blockData from './../block.json';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { omit } from 'underscore';
 
 const v1 = {
